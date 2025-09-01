@@ -12,6 +12,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '16'
+      
+      - name: Instalar dependências
+        run: npm install
 
       - name: Executar testes
         run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: run-tests
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build App
+        run: echo "Building app..."
+
+      - name: Deploy
+        run: echo "Deploy realizado com sucesso!"
