@@ -1,0 +1,38 @@
+name: Demo - Pipeline rodando apenas em stage
+on: 
+  push:
+    branches:
+      - stage
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+      
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes
+        run: npm test
+
+  deploy:
+    needs: [run-tests]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build App
+        run: echo "Building app..."
+
+      - name: Deploy
+        run: echo "Deploy realizado com sucesso!"
+  
