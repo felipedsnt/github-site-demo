@@ -1,8 +1,10 @@
 name: Demo - Pipeline rodando apenas em Production
 on: 
   push:
-    branches:
+    branches-ignore:
       - main
+    tags:
+      - v*-stage
 jobs:
   run-tests:
     runs-on: ubuntu-latest
