@@ -1,5 +1,6 @@
 name: Demo - Pipeline rodando apenas em Production
 on: 
+  workflow_dispatch:
   push:
     branches-ignore:
       - main
