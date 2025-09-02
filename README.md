@@ -6,3 +6,5 @@ Como este é um projeto de exemplo, não estamos aceitando contribuições no mo
 
 
 teste
+
+Skip-CI
